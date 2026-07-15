@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTS4 - 動画編集サービス</title>
+    <link rel="icon" href="https://cdn.phototourl.com/free/2026-06-21-82f32ded-785a-4b26-8436-cfbfb12dd470.png" type="image/png">
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; }
+        header { background: #1a1a1a; color: #fff; padding: 20px 0; text-align: center; }
+        h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
+        nav { background: #333; text-align: center; padding: 10px 0; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 1.1rem; }
+        nav a:hover { color: #ff4500; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        section { margin-bottom: 60px; scroll-margin-top: 60px; }
+        h2 { border-left: 5px solid #ff4500; padding-left: 15px; font-size: 1.8rem; margin-bottom: 20px; }
+        
+        /* ヒーローエリア（アニメーション用に少し調整） */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://unsplash.com') no-repeat center center/cover; 
+            color: #fff; 
+            text-align: center; 
+            padding: 100px 20px; 
+            overflow: hidden; /* 流れる文字のはみ出し防止 */
+        }
+        .hero h2 { border: none; padding: 0; font-size: 2.5rem; }
+
+        /* アニメーション全体のベース枠 */
+        .animation-box {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto 0;
+            height: 40px; /* 高さを固定して画面のガタつきを防止 */
+        }
+
+        /* 1. 横に流れる文字の設定 */
+        .step1-window {
+            position: absolute;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            font-size: 1.3rem;
+            /* 6秒後にパッと非表示にする */
+            animation: hideStep1 0s linear 8s forwards;
+        }
+        .step1-text {
+            display: inline-block;
+            padding-left: 100%;
+            /* 6秒かけて右から左へ流しきる */
+            animation: marquee 8s linear forwards;
+        }
+
+        /* 2. ふわっと浮き上がる文字の設定 */
+        .step2-text {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ffffff; /* サイトのテーマカラーに合わせました */
+            opacity: 0; /* 最初は隠す */
+            /* 1が消える6秒目から、1.5秒かけてふわっと出す */
+            animation: fadeUp 1.5s ease-out 8s forwards;
+        }
+
+        /* 各キーフレーム（動き）の定義 */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        @keyframes hideStep1 {
+            to { display: none; opacity: 0; visibility: hidden; }
+        }
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        footer { background: #1a1a1a; color: #fff; text-align: center; padding: 20px 0; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <header>
+      <img src=https://cdn.phototourl.com/free/2026-06-21-51f88fdb-1532-4c16-92dc-d41c29024171.png>
+      <h1>KTS4</h1>
+        </header>
+
+    <nav>
+        <a href="#about">KTS4について</a>
+        <a href="#color-analysis">簡単な動画色解析＆自動結合ツール</a>
+        <a href="#merge-tool">動画結合ツール</a>
+        <a href="#aspect-ratio">動画の縦横比を変更する</a>
+        <a href="#trimming">動画トリミング・分割ツール</a>
+        <a href="#pro">簡単加工</a>
+        <a href="#ano">速度変更機能</a>
+        <a href="#ii">逆再生</a>
+        <a href="#art">スルーシナイト</a>
+        <a href="#usa">色解析</a>
+      </nav>
+
+    <div class="hero">
+        <h2>動画をもっと丁寧に。</h2>
+        
+        <!-- 動く文字のエリア -->
+        <div class="animation-box">
+            <!-- 1. 最初に右から左へ流れる文字 -->
+            <div class="step1-window">
+                <div class="step1-text">〜 派手な演出はいらない。動画の本質は「構成」と「厳選」にある。〜</div>
+            </div>
+            <!-- 2. 流れた後に中央に浮き上がる文字 -->
+            <p class="step2-text">あなたの動画の本質を引き出すクリエイティブ空間</p>
+        </div>
+    </div>
+
+<div class="container">
+    <!-- 見出し1 -->
+    <section id="about">
+        <h2>KTS4について</h2>
+         <p>〜 派手な演出はいらない。動画の本質は「構成」と「厳選」にある。〜<br> 現代の動画編集は、過剰なエフェクト、飛び交うテロップ、そしてAIによる自動化で溢れています。しかし、視聴者の心に本当に残る動画とは、そのような「見た目の派手さ」だけで作られたものでしょうか。『king think select 4』は、そんな時代にあえて逆行する、ロジカル(論理的)な動画編集サイトです。私たちが目指したのは、編集技術の誇示ではありません。あなたが伝えたいメッセージを最も純粋に届けるために、「深く考え(Think)、最高の素材だけを厳選して(Select)つなぐ」という、動画制作の本質だけを研ぎ澄ましたクリエイティブ空間です。</p>
+    </section>
+
+    <!-- 見出し2 -->
+    <section id="color-analysis">
+        <h2>簡単な動画色解析＆自動結合システム</h2>
+        <p>動画のアップロード欄２つ（①と②）があり①にアップロードされたものを１秒ずつの画像にしてそれぞれなんの色が多いかを解析します。<br>
+        その後に、②の動画の最初はなんの色が多いかを解析して①で分けられたものの中で最も近いものを選んで②と結合させ、①で分けられた中から選ばれた画像よりも①の動画の中で後に再生されるものは全て削除することができるツールです。</p>
+        <p class="notice">アップデートしました！※動画が長いと、処理時間も長くなります。また、タブは移動しないでください</p>
+        <p><a href="https://html.cafe/x03843e0d" target="_blank" rel="noopener">ツールを開く</a></p>
+    </section>
+
+    <!-- 見出し3 -->
+    <section id="merge-tool">
+        <h2>動画結合ツール</h2>
+        <p>２つの動画を結合します。</p>
+        <p><a href="https://html.cafe/xe1edbe19" target="_blank" rel="noopener">ツールを開く</a></p>
+    </section>
+
+    <!-- 見出し4 -->
+    <section id="aspect-ratio">
+        <h2>動画の縦横比を変更する</h2>
+        <p>SNSや用途に合わせて、動画の画面サイズ・比率を最適化します。</p>
+        <p><a href="https://html.cafe/xf6b5a8e8" target="_blank" rel="noopener">ツールを開く</a></p>
+    </section>
+     
+    <!-- 見出し5 -->
+    <section id="trimming">
+        <h2>動画トリミング・分割ツール</h2>
+        <p>不要なシーンのカットや、動画を細かく分ける機能です。</p>
+        <p><a href="https://html.cafe/x1b0f9c05" target="_blank" rel="noopener">ツールを開く</a></p>
+    </section>
+
+    <!-- 見出し6 -->
+    <section id="pro">
+        <h2>簡単加工</h2>
+        <p>ボタン一つで加工できます。ダウンロードボタンからダウンロードはできるようになりました！</p>
+        <p>プレビュー画面や、動画の最初や指定した場所に、1つだけテキスト（タイトルや一言メッセージ）を入れられる機能つきです。</p> 
+        <p><a href="https://html.cafe/x01aebd46" target="_blank" rel="noopener">ツールを開く</a></p>
+        <p>アップデートしました。</p> 
+        <p><a href="https://html.cafe/x2ffcff25" target="_blank" rel="noopener">詳細</a></p>
+    </section>
+
+    <!-- 見出し7 -->
+    <section id="ano">
+        <h2>速度変更機能</h2>
+        <p>動画の速さを好きなように変更できます</p>
+        <p><a href="https://html.cafe/xd11443ee" target="_blank" rel="noopener">ツールを開く</a></p>
+    </section>        
+
+    <!-- 見出し8 -->
+    <section id="ii">
+        <h2>逆再生</h2>
+        <p>動画を好きなところで逆再生させます。</p>
+        <p><a href="https://html.cafe/x57eaf4ca" target="_blank" rel="noopener">ツールを開く</a></p>
+    </section>
+
+    <!-- 見出し9 （修正点：コメントの番号とタグの配置を修正） -->
+    <section id="art">
+        <h2>スルーシナイト</h2>
+        <p>情報の解析と整理ができます。1秒くらいでスルーされてしまう現代にあった、情報の解析と整理をして退屈さを軽減する、編集ツールです。</p>
+        <p><a href="https://html.cafe/xe1a62a5d" target="_blank" rel="noopener">ツールを開く</a></p>
+    </section>
+
+    <!-- 見出し10 （修正点：コメントの番号とタグの配置を修正） -->
+          <section id="usa">
+        <h2>色解析</h2>
+まず、対象となる写真をシステムに読み込み、画像の明るさを最大値である100に設定して初期化します。次に、明るさが0になるまで以下の処理を繰り返し実行します。画像をモノクロ（グレースケール）に変換したあと、明るさを1だけ下げます。その状態の画像内から最も暗い色（ピクセル）を探索し、見つかった色をデータとして順次記録していきます。最後に、記録されたデータのうち、各明るさの段階で「最初に最も暗い色として検出された色」を基準値「1」として定義します。この基準をもとに、画像を20×20ピクセルのブロック（グリッド）ごとに分割し、それぞれのエリアの明るさに応じた数字を割り振っていきます。
+            <p>画像のサイズが大きいとうまくできません。</p>
+
+        <p><a href="https://html.cafe/xe1950986" target="_blank" rel="noopener">ツールを開く</a></p>
+    </section>
+      </div> <!-- 修正点：containerをここで綺麗に閉じました -->
+
+<footer>
+    <p>&copy; 2026 KTS4 All Rights Reserved.</p>
+  <p>万が一トラブルが発生した際、king Think Select 4では対応いたしかねます。誠に恐れ入りますが、お客様ご自身の責任においてご利用いただきますようお願い申し上げます。</p>
+  <p>当サービスの文章や技術等はKTS4が心を込めて作成したものです。大変恐れ入りますが、無断での転載やコピーはお控えくださいますようお願いいたします。</p>
+  <p>このサイトで作成した動画等は商用利用可能です。</p>
+      </footer>
+
+
+<script defer data-domain="html.cafe" src="https://milkymouse.com/js/script.js"></script>
+
+   <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"94c79d4d951745d085049dd7f2bbd8f8","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
